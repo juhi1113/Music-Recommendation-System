@@ -12,6 +12,7 @@ EMOTIONS = ["happy", "sad"]
 
 def emotion_testing():
     cap = cv2.VideoCapture(0)
+    predicted_emotion = None  # Initialize predicted_emotion
     while True:
         ret, test_img = cap.read()
         if not ret:
@@ -43,4 +44,6 @@ def emotion_testing():
             break
     cap.release()
     cv2.destroyAllWindows
+    if predicted_emotion is None:
+        predicted_emotion = "happy" 
     return predicted_emotion
